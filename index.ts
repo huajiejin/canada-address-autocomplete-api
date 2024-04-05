@@ -1,5 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import { Client } from '@elastic/elasticsearch';
+import fs from 'fs';
 
 // load .env file
 dotenv.config();
@@ -37,6 +39,19 @@ if (!ES_INDEX) {
 }
 
 const app = express();
+
+const esClient = new Client({
+	node: ES_ENDPOINT,
+	tls: {
+		ca: fs.readFileSync(ES_CA_CERT),
+		rejectUnauthorized: false,
+	},
+	auth: {
+		username: ES_USERNAME,
+		password: ES_PASSWORD,
+	},
+});
+
 
 app.get("/", (req, res) => {
 	res.send("OK");
