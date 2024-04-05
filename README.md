@@ -339,6 +339,10 @@ Returns ok if the service is running. You can use this endpoint to check if the 
 curl http://localhost:4000/
 ```
 
+## Blog
+
+For a detailed explanation of the code, you can read the blog post [here](https://blog.jinshub.com/elk/address-autocomplete-api).
+
 ## License
 
 The Open Database of Addresses (ODA) is a collection of open address point data and is made available under the [Open Government License - Canada.](https://open.canada.ca/en/open-government-licence-canada)
